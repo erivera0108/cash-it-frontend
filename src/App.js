@@ -34,7 +34,7 @@ class App extends React.Component {
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user}/>} />
 
           <Route path='/newItem' component={NewItem} />
-          <Route path='/' component={Items} />
+          <Route path='/' render={routerProps => <Items {...routerProps} />} />
         </Switch>
       </div>
     )

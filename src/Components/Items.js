@@ -19,10 +19,10 @@ class Items extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+        // console.log(this.props)
         return (
             <div>
-                {this.state.items.map( item => <ItemCard key={item.id} itemInfo={item}/>)}
+                {this.state.items.map( item => <ItemCard history={this.props.history} key={item.id} itemInfo={item}/>)}
             </div>
         )
     }

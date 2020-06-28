@@ -1,13 +1,32 @@
 import React from 'react'
 
+const USER_URL = 'http://localhost:3000/api/v1/users'
+
+
 class ItemCard extends React.Component {
+    state = {
+        owner: {}
+    }
+
+    componentDidMount() {
+        const id = this.props.itemInfo.id
+        fetch(`${USER_URL}/${id}`)
+            .then(res => res.json())
+            .then(user => {
+                this.setState({
+                    owner: user
+                })
+            })
+    }
 
     render() {
-        // console.log(this.props)
-        const {id, category, user_id } = this.props.itemInfo
+        console.log(this.props)
+        const { id, category, user_id } = this.props.itemInfo
+        const { history } = this.props
 
-        return(
-            <div>
+        return (
+            <div onClick={()=> history.push(`/items/${id}`)} >
+                Owner: {this.state.owner.name} <br />
                 Category: {category}
             </div>
         )
