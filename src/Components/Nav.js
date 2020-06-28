@@ -39,7 +39,7 @@ class Nav extends React.Component {
                 <div onClick={this.mainHandler} className='menu'>
                     ☰
                 </div >
-                <Menu menu={this.state.menu}  mouseOut={this.mainHandler}/>
+                <Menu userId={this.props.userId} menu={this.state.menu}  mouseOut={this.mainHandler}/>
             </div>
 
         )

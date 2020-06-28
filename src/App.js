@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const id = 1
+    const id = 3
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
       .then(userData => {
@@ -27,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav userId={this.state.user.id}/>
         <Switch>
 
           <Route path='/signup' component={NewUser} />
