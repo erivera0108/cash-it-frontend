@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Nav, Items, NewItem, User, NewUser } from './Components';
+import { Nav, Items, NewItem, ItemShowPage, User, NewUser } from './Components';
 
 import { Route, Switch } from 'react-router-dom';
+
 
 
 const USER_URL = 'http://localhost:3000/api/v1/users'
@@ -34,6 +35,8 @@ class App extends React.Component {
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user}/>} />
 
           <Route path='/newItem' component={NewItem} />
+          <Route path='/items/:id' component={ItemShowPage} />
+
           <Route path='/' render={routerProps => <Items {...routerProps} />} />
         </Switch>
       </div>
