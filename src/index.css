@@ -35,3 +35,19 @@ code {
   float: right;
 
 }
+
+#drop-down {
+  position: absolute;
+  float: right;
+  width: 20vw;
+  height: auto;
+  text-align: center;
+  margin-top:-30px;
+  margin-right: 40px;
+  right: 0;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 0.2em;
+  box-shadow: 2px 2px 8px 2px #87878768;
+  background-color: white;
+  z-index: 99;
+}

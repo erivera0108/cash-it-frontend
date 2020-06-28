@@ -4,8 +4,27 @@ import Menu from './Menu'
 
 class Nav extends React.Component {
 
+    state={
+        menu: false,
+    }
 
+    mainHandler = e => {
+        if(this.state.menu === true){
+            this.setState({
+                menu: false
+            })
+        }else{
+            this.setState({
+                menu: true
+            })
+        }
+    }
 
+    focusOut = e => {
+        this.setState({
+            menu: false
+        })
+    }
 
     render() {
         return (
@@ -17,10 +36,10 @@ class Nav extends React.Component {
                 <div className='search-bar'>
                     <SearchBar />
                 </div>
-                <div className='menu'>
+                <div onClick={this.mainHandler} className='menu'>
                     ☰
                 </div >
-                <Menu />
+                <Menu menu={this.state.menu}  mouseOut={this.mainHandler}/>
             </div>
 
         )
