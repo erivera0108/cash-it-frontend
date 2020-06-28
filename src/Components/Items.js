@@ -1,11 +1,28 @@
 import React from 'react'
+import ItemCard from './ItemCard'
+
+const ITEMS_URL ='http://localhost:3000/api/v1/items'
 
 class Items extends React.Component{
+    state = {
+        items: []
+    }
+
+    componentDidMount() {
+        fetch(ITEMS_URL)
+        .then( res => res.json())
+        .then( items => {
+            this.setState({
+                items
+            })
+        } )
+    }
 
     render(){
+        console.log(this.state)
         return (
             <div>
-                Items Page
+                {this.state.items.map( item => <ItemCard key={item.id} itemInfo={item}/>)}
             </div>
         )
     }
