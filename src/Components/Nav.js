@@ -17,9 +17,6 @@ class Nav extends React.Component {
                 <div className='search-bar'>
                     <SearchBar />
                 </div>
-                <div>
-                    {this.props.user.username ? `Welcome, ${this.props.user.username}` : ''}
-                </div>
             </div>
 
         )

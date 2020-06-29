@@ -24,14 +24,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // const id = 15
-    // fetch(`${USER_URL}/${id}`)
-    //   .then(res => res.json())
-    //   .then(userData => {
-    //     this.setState({
-    //       user: userData
-    //     })
-    //   })
+    // Comment out the user fetch below to enable signup 
+    const id = 15
+    fetch(`${USER_URL}/${id}`)
+      .then(res => res.json())
+      .then(userData => {
+        this.setState({
+          user: userData
+        })
+      })
     fetch(ITEMS_URL)
       .then(res => res.json())
       .then(items => {
@@ -51,6 +52,10 @@ class App extends React.Component {
 
 
   render() {
+    const filteredItems = this.state.items.filter( item => item.user_id !== this.state.user.id)
+    const userItems = this.state.items.filter( item => item.user_id === this.state.user.id)
+
+    console.log('current user:', this.state.user, 'filtered items', filteredItems)
     
     return (
       <div>
@@ -58,12 +63,12 @@ class App extends React.Component {
         <Switch>
 
           <Route path='/signup' render={(routerProps) => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
-          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user} />} />
+          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user} items={userItems} />} />
 
           <Route path='/newItem' component={NewItem} />
           <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} bids={this.state.bids} />} />
 
-          <Route path='/' render={routerProps => <Items items={this.state.items} {...routerProps} />} />
+          <Route path='/' render={routerProps => <Items user={this.state.user} items={filteredItems} {...routerProps} />} />
         </Switch>
       </div>
     )
