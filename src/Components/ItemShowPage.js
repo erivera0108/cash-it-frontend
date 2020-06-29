@@ -32,7 +32,12 @@ class ItemShowPage extends React.Component {
                 </div>
                 <br />
                 Offers:
-                {`${filteredBids.map(bid => bid.offer)}, `}
+                {` ${filteredBids.map(bid => bid.offer)}`}
+                {/* bid info component here 
+                {` ${filteredBids.map(bid => <BidInfo bidData={bid} />)}`}
+                */}
+                
+                <br />
                 Potential Buyers: {filteredBids.length}
             </div>
         )

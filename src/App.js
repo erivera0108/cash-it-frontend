@@ -17,16 +17,21 @@ class App extends React.Component {
     bids: []
   }
 
-  componentDidMount() {
-    const id = 15
-    fetch(`${USER_URL}/${id}`)
-      .then(res => res.json())
-      .then(userData => {
-        this.setState({
-          user: userData
-        })
-      })
+  currentUser = user => {
+    this.setState({
+      user
+    })
+  }
 
+  componentDidMount() {
+    // const id = 15
+    // fetch(`${USER_URL}/${id}`)
+    //   .then(res => res.json())
+    //   .then(userData => {
+    //     this.setState({
+    //       user: userData
+    //     })
+    //   })
     fetch(ITEMS_URL)
       .then(res => res.json())
       .then(items => {
@@ -49,10 +54,10 @@ class App extends React.Component {
     
     return (
       <div>
-        <Nav userId={this.state.user.id} />
+        <Nav user={this.state.user} />
         <Switch>
 
-          <Route path='/signup' component={NewUser} />
+          <Route path='/signup' render={(routerProps) => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user} />} />
 
           <Route path='/newItem' component={NewItem} />
