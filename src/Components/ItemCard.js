@@ -20,14 +20,16 @@ class ItemCard extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-        const { id, category, user_id } = this.props.itemInfo
+        // console.log(this.props)
+        const { id, category} = this.props.itemInfo
         const { history } = this.props
 
         return (
             <div onClick={()=> history.push(`/items/${id}`)} >
                 Owner: {this.state.owner.name} <br />
                 Category: {category}
+                <br />
+                <br />
             </div>
         )
     }
