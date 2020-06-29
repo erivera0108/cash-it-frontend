@@ -9,7 +9,7 @@ class ItemCard extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.itemInfo.id
+        const id = this.props.itemInfo.user_id
         fetch(`${USER_URL}/${id}`)
             .then(res => res.json())
             .then(user => {
