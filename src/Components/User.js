@@ -8,7 +8,7 @@ class User extends React.Component {
         const { id, name, username } = this.props.user
         const { history } = this.props
 
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div>
                 User Show Page
@@ -18,9 +18,12 @@ class User extends React.Component {
                     Username: {username}
                 </div>
                 <br />
+                <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 <div>
                     User's Items
-                    {this.props.items.map(item => <ItemCard itemInfo={item} history={history} />)}
+                    {this.props.items.map(item => <ItemCard key={item.id} itemInfo={item} history={history} />)}
+                </div>
+                <div>
                 </div>
             </div>
         )

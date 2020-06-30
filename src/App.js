@@ -23,6 +23,12 @@ class App extends React.Component {
     })
   }
 
+  addNewItem = newItem => {
+    this.setState({
+      items: [...this.state.items, newItem]
+    })
+  }
+
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
     const id = 15
@@ -52,11 +58,11 @@ class App extends React.Component {
 
 
   render() {
-    const filteredItems = this.state.items.filter( item => item.user_id !== this.state.user.id)
-    const userItems = this.state.items.filter( item => item.user_id === this.state.user.id)
+    const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
+    const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
 
-    console.log('current user:', this.state.user, 'filtered items', filteredItems)
-    
+    // console.log('current user:', this.state.user, 'filtered items', filteredItems)
+
     return (
       <div>
         <Nav user={this.state.user} />
@@ -65,7 +71,7 @@ class App extends React.Component {
           <Route path='/signup' render={(routerProps) => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user} items={userItems} />} />
 
-          <Route path='/newItem' component={NewItem} />
+          <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
           <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} bids={this.state.bids} />} />
 
           <Route path='/' render={routerProps => <Items user={this.state.user} items={filteredItems} {...routerProps} />} />
