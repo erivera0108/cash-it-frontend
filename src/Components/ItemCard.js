@@ -20,14 +20,18 @@ class ItemCard extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
-        const { id, category} = this.props.itemInfo
-        const { history } = this.props
+        console.log(this.props)
+        const { id, category } = this.props.itemInfo
+        const { history, loaded } = this.props
 
         return (
-            <div onClick={()=> history.push(`/items/${id}`)} >
-                Owner: {this.state.owner.name} <br />
-                Category: {category}
+            <div>
+                <div onClick={() => history.push(`/items/${id}`)} >
+                    Owner: {this.state.owner.name} <br />
+                    Category: {category}
+                </div>
+                {loaded ? <button onClick={() => console.log('click')}> Delete </button> : null}
+
                 <br />
                 <br />
             </div>

@@ -9,7 +9,7 @@ class Items extends React.Component {
         return (
             <div>
                 {this.props.user.username ? `Welcome, ${this.props.user.username}` : ''}
-                {this.props.items.map(item => <ItemCard history={this.props.history} key={item.id} itemInfo={item} />)}
+                {this.props.items.map(item => <ItemCard history={this.props.history} loaded={false} key={item.id} itemInfo={item} />)}
             </div>
         )
     }

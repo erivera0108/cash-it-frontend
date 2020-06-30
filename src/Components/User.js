@@ -21,7 +21,7 @@ class User extends React.Component {
                 <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 <div>
                     User's Items
-                    {this.props.items.map(item => <ItemCard key={item.id} itemInfo={item} history={history} />)}
+                    {this.props.items.map(item => <ItemCard key={item.id} loaded={true} itemInfo={item} history={history} />)}
                 </div>
                 <div>
                 </div>
