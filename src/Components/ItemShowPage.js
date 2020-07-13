@@ -1,4 +1,5 @@
 import React from 'react'
+import BidCardInfo from './BidCardInfo'
 
 const ITEMS_URL = 'http://localhost:3000/api/v1/items'
 
@@ -30,15 +31,15 @@ class ItemShowPage extends React.Component {
                 <div>
                     Item's Show page
                 </div>
-                <br />
-                Offers:
-                {` ${filteredBids.map(bid => bid.offer)}`}
-                {/* bid info component here 
-                {` ${filteredBids.map(bid => <BidInfo bidData={bid} />)}`}
-                */}
-                
+
+                <button>Place and Offer Here</button>
                 <br />
                 Potential Buyers: {filteredBids.length}
+                <br />
+                <br />
+                Offers:
+                {filteredBids.map(bid => <BidCardInfo key={bid.id} bid={bid} />)} 
+                <br />
             </div>
         )
     }

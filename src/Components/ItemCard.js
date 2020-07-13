@@ -20,16 +20,6 @@ class ItemCard extends React.Component {
             })
     }
 
-    // deleteItem = id => {
-    //     fetch(`${ITEM_URL}/${id}`,{
-    //         method: 'DELETE',
-    //         headers: {
-    //             Accept: 'application/json',
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    // }
-
     render() {
         console.log(this.props)
         const { id, category } = this.props.itemInfo
