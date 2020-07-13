@@ -39,6 +39,7 @@ class App extends React.Component {
           user: userData
         })
       })
+      
     fetch(ITEMS_URL)
       .then(res => res.json())
       .then(items => {

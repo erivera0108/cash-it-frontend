@@ -1,6 +1,7 @@
 import React from 'react'
 
 const USER_URL = 'http://localhost:3000/api/v1/users'
+const ITEM_URL = 'http://localhost:3000/api/v1/items'
 
 
 class ItemCard extends React.Component {
@@ -19,6 +20,16 @@ class ItemCard extends React.Component {
             })
     }
 
+    deleteItem = id => {
+        fetch(`${ITEM_URL}/${id}`,{
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+    }
+
     render() {
         console.log(this.props)
         const { id, category } = this.props.itemInfo
@@ -30,7 +41,7 @@ class ItemCard extends React.Component {
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
                 </div>
-                {loaded ? <button onClick={() => console.log('click')}> Delete </button> : null}
+                {loaded ? <button onClick={() => this.deleteItem(id)}> Delete </button> : null}
 
                 <br />
                 <br />
