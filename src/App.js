@@ -39,7 +39,7 @@ class App extends React.Component {
           user: userData
         })
       })
-      
+
     fetch(ITEMS_URL)
       .then(res => res.json())
       .then(items => {
@@ -57,6 +57,19 @@ class App extends React.Component {
       })
   }
 
+  deleteItem = id => {
+    fetch(`${ITEMS_URL}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(this.setState({
+        items: this.state.items.filter(item => item.id !== id)
+      }))
+  }
+
 
   render() {
     const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
@@ -70,7 +83,7 @@ class App extends React.Component {
         <Switch>
 
           <Route path='/signup' render={(routerProps) => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
-          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} user={this.state.user} items={userItems} />} />
+          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={userItems} />} />
 
           <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
           <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} bids={this.state.bids} />} />

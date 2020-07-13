@@ -20,20 +20,20 @@ class ItemCard extends React.Component {
             })
     }
 
-    deleteItem = id => {
-        fetch(`${ITEM_URL}/${id}`,{
-            method: 'DELETE',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-    }
+    // deleteItem = id => {
+    //     fetch(`${ITEM_URL}/${id}`,{
+    //         method: 'DELETE',
+    //         headers: {
+    //             Accept: 'application/json',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    // }
 
     render() {
         console.log(this.props)
         const { id, category } = this.props.itemInfo
-        const { history, loaded } = this.props
+        const { history, loaded, deleteItem} = this.props
 
         return (
             <div>
@@ -41,7 +41,7 @@ class ItemCard extends React.Component {
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
                 </div>
-                {loaded ? <button onClick={() => this.deleteItem(id)}> Delete </button> : null}
+                {loaded ? <button onClick={() => deleteItem(id)}> Delete </button> : null}
 
                 <br />
                 <br />

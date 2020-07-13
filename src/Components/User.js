@@ -6,7 +6,7 @@ class User extends React.Component {
 
     render() {
         const { id, name, username } = this.props.user
-        const { history } = this.props
+        const { history, deleteItem } = this.props
 
         // console.log(this.props)
         return (
@@ -21,7 +21,7 @@ class User extends React.Component {
                 <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 <div>
                     User's Items
-                    {this.props.items.map(item => <ItemCard key={item.id} loaded={true} itemInfo={item} history={history} />)}
+                    {this.props.items.map(item => <ItemCard key={item.id} deleteItem={deleteItem} loaded={true} itemInfo={item} history={history} />)}
                 </div>
                 <div>
                 </div>
