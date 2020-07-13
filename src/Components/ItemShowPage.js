@@ -31,6 +31,8 @@ class ItemShowPage extends React.Component {
                     Item's Show page
                 </div>
                 <br />
+                Category: {category}
+                <br/>
                 Offers:
                 {` ${filteredBids.map(bid => bid.offer)}`}
                 {/* bid info component here 
