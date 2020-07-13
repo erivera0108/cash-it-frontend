@@ -20,7 +20,7 @@ class ItemShowPage extends React.Component {
     }
 
     render() {
-        const { bids } = this.props
+        const { bids, currentUser } = this.props
         const { id, category, user_id } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
@@ -31,14 +31,15 @@ class ItemShowPage extends React.Component {
                 <div>
                     Item's Show page
                 </div>
-
                 <button>Place and Offer Here</button>
                 <br />
                 Potential Buyers: {filteredBids.length}
                 <br />
                 <br />
-                Offers:
-                {filteredBids.map(bid => <BidCardInfo key={bid.id} bid={bid} />)} 
+
+                {user_id === currentUser.id ?
+                    filteredBids.map(bid => <BidCardInfo key={bid.id} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
+                    : null}
                 <br />
             </div>
         )

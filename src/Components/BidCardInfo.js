@@ -20,14 +20,14 @@ class BidCardInfo extends React.Component {
 
 
     render() {
-        console.log(this.props)
-        const { offer } = this.props.bid
+        // console.log(this.props)
+        const { bid } = this.props
 
         return (
             <div>
-                Offer: {offer}
-                <br />
                 Owner Name: {this.state.owner.name}
+                <br />
+                Offer: {bid.offer}
                 <br />
                 <br />
             </div>
