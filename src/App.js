@@ -31,7 +31,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
-    const id = 11
+    const id = 2
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
       .then(userData => {
@@ -86,7 +86,7 @@ class App extends React.Component {
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={userItems} />} />
 
           <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
-          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} bids={this.state.bids} />} />
+          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} currentUser={this.state.user} bids={this.state.bids} />} />
 
           <Route path='/' render={routerProps => <Items user={this.state.user} items={filteredItems} {...routerProps} />} />
         </Switch>
