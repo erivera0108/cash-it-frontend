@@ -31,7 +31,8 @@ class ItemShowPage extends React.Component {
                 <div>
                     Item's Show page
                 </div>
-                <button>Place and Offer Here</button>
+                {currentUser.id === user_id ? null : <button>Place an Offer Here</button> }
+                
                 <br />
                 Potential Buyers: {filteredBids.length}
                 <br />
