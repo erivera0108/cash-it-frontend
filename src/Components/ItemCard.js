@@ -21,7 +21,7 @@ class ItemCard extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const { id, category } = this.props.itemInfo
         const { history, loaded, deleteItem} = this.props
 
