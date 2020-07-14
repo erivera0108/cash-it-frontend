@@ -7,6 +7,7 @@ class Nav extends React.Component {
 
 
     render() {
+        const { onChange, value } = this.props
         return (
             <div>
                 <div className="left-side-nav">
@@ -15,7 +16,7 @@ class Nav extends React.Component {
                     <Link to='/signup' >Signup</Link>
                 </div>
                 <div className='search-bar'>
-                    <SearchBar />
+                    <SearchBar onChange={onChange} value={value} />
                 </div>
             </div>
 

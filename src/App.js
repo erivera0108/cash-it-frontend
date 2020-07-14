@@ -14,7 +14,8 @@ class App extends React.Component {
   state = {
     user: {},
     items: [],
-    bids: []
+    bids: [],
+    searchTerm: ''
   }
 
   currentUser = user => {
@@ -70,25 +71,35 @@ class App extends React.Component {
       }))
   }
 
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
 
   render() {
     const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
-    const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
+    const searchedItems = filteredItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
-    // console.log('current user:', this.state.user, 'filtered items', filteredItems)
+    const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
+    const searchedUserItems = userItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+
+
+    console.log(this.state.searchTerm)
 
     return (
       <div>
-        <Nav user={this.state.user} />
+        <Nav user={this.state.user} value={this.state.searchTerm} onChange={this.onChange} />
         <Switch>
 
           <Route path='/signup' render={(routerProps) => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
-          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={userItems} />} />
+          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={searchedUserItems} />} />
 
           <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
           <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} currentUser={this.state.user} bids={this.state.bids} />} />
 
-          <Route path='/' render={routerProps => <Items user={this.state.user} items={filteredItems} {...routerProps} />} />
+          <Route path='/' render={routerProps => <Items user={this.state.user} items={searchedItems} {...routerProps} />} />
         </Switch>
       </div>
     )
