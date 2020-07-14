@@ -1,5 +1,6 @@
 import React from 'react'
 import BidCardInfo from './BidCardInfo'
+import NewBid from './NewBid'
 
 const ITEMS_URL = 'http://localhost:3000/api/v1/items'
 
@@ -20,7 +21,7 @@ class ItemShowPage extends React.Component {
     }
 
     render() {
-        const { bids, currentUser } = this.props
+        const { bids, currentUser, addNewBid } = this.props
         const { id, category, user_id } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
@@ -31,7 +32,7 @@ class ItemShowPage extends React.Component {
                 <div>
                     Item's Show page
                 </div>
-                {currentUser.id === user_id ? null : <button>Place an Offer Here</button> }
+                {currentUser.id === user_id ? null : <NewBid currentUser={currentUser} itemId={id} addNewBid={addNewBid} /> }
                 
                 <br />
                 Potential Buyers: {filteredBids.length}

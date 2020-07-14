@@ -30,9 +30,15 @@ class App extends React.Component {
     })
   }
 
+  addNewBid = newBid => {
+    this.setState({
+      bids: [...this.state.bids, newBid]
+    })
+  }
+
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
-    const id = 2
+    const id = 12
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
       .then(userData => {
@@ -93,11 +99,11 @@ class App extends React.Component {
         <Nav user={this.state.user} value={this.state.searchTerm} onChange={this.onChange} />
         <Switch>
 
-          <Route path='/signup' render={(routerProps) => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
-          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={searchedUserItems} />} />
-
+          <Route path='/signup' render={routerProps => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
+          <Route path='/users/:id' render={routerProps => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={searchedUserItems} />} />
+            
           <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
-          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} currentUser={this.state.user} bids={this.state.bids} />} />
+          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} currentUser={this.state.user} bids={this.state.bids} addNewBid={this.addNewBid} />} />
 
           <Route path='/' render={routerProps => <Items user={this.state.user} items={searchedItems} {...routerProps} />} />
         </Switch>
@@ -109,3 +115,11 @@ class App extends React.Component {
 
 
 export default App;
+
+
+// "id": 2,
+// "name": "Susie Breitenberg",
+// "username": "samual",
+// "password_digest": "123",
+// "created_at": "2020-06-29T17:07:00.185Z",
+// "updated_at": "2020-06-29T17:07:00.185Z"
