@@ -1,8 +1,6 @@
 import React from 'react'
 
 const USER_URL = 'http://localhost:3000/api/v1/users'
-const ITEM_URL = 'http://localhost:3000/api/v1/items'
-
 
 class ItemCard extends React.Component {
     state = {
@@ -13,10 +11,8 @@ class ItemCard extends React.Component {
         const id = this.props.itemInfo.user_id
         fetch(`${USER_URL}/${id}`)
             .then(res => res.json())
-            .then(user => {
-                this.setState({
-                    owner: user
-                })
+            .then(owner => {
+                this.setState({ owner })
             })
     }
 

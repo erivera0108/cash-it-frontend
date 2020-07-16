@@ -45,7 +45,7 @@ class NewBid extends React.Component {
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div>
                 <form onSubmit={this.clickSubmit} >

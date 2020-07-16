@@ -1,27 +1,32 @@
 import React from 'react'
 import ItemCard from './ItemCard'
+import BidCard from './BidCard'
 
 
 class User extends React.Component {
 
     render() {
-        const { id, name, username } = this.props.user
-        const { history, deleteItem } = this.props
+        const { id, name, userName } = this.props.user
+        const { history, items, deleteItem, bids, deleteBid } = this.props
 
-        // console.log(this.props)
+        console.log(this.props.bids)
         return (
             <div>
                 User Show Page
                 <div>
                     id: {id}
                     name {name}
-                    Username: {username}
+                    Username: {userName}
                 </div>
                 <br />
                 <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 <div>
-                    User's Items
-                    {this.props.items.map(item => <ItemCard key={item.id} deleteItem={deleteItem} loaded={true} itemInfo={item} history={history} />)}
+                    User's Items to Sell
+                    {items.map(item => <ItemCard key={item.id} deleteItem={deleteItem} loaded={true} itemInfo={item} history={history} />)}
+                </div>
+                <div>
+                    User's Bids
+                    {bids.map(bid => <BidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} loaded={true} userName={userName} /> )}
                 </div>
                 <div>
                 </div>

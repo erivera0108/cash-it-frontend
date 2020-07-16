@@ -25,7 +25,7 @@ class ItemShowPage extends React.Component {
         const { id, category, user_id } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
-        console.log(filteredBids)
+        // console.log(filteredBids)
 
         return (
             <div>
