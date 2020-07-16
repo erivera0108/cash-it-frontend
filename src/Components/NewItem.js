@@ -40,7 +40,7 @@ class NewItems extends React.Component{
     }
 
     render(){
-        console.log(this.props, this.state)
+        // console.log(this.props, this.state)
         return (
             <div>
                 <form  onSubmit={this.clickSubmit} id="userFormContainer" className="ui form container">

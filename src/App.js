@@ -77,6 +77,19 @@ class App extends React.Component {
       }))
   }
 
+  deleteBid = id => {
+    fetch(`${BIDS_URL}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(this.setState({
+        bids: this.state.bids.filter(bid => bid.id !== id)
+      }))
+  }
+
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -91,8 +104,13 @@ class App extends React.Component {
     const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
     const searchedUserItems = userItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
+    const userBids = this.state.bids.filter(bids => bids.user_id === this.state.user.id)
+    // Where in progress, filtering the users bids
+    // const searchedUserBids = userBids.filter(bid => (bid.item_id === searchedItems.id))
 
-    console.log(this.state.searchTerm)
+
+
+    // console.log(searchedItems)
 
     return (
       <div>
@@ -100,7 +118,7 @@ class App extends React.Component {
         <Switch>
 
           <Route path='/signup' render={routerProps => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
-          <Route path='/users/:id' render={routerProps => <User {...routerProps} deleteItem={this.deleteItem} user={this.state.user} items={searchedUserItems} />} />
+          <Route path='/users/:id' render={routerProps => <User {...routerProps} bids={userBids} deleteBid={this.deleteBid} user={this.state.user} items={searchedUserItems} deleteItem={this.deleteItem} />} />
             
           <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
           <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} currentUser={this.state.user} bids={this.state.bids} addNewBid={this.addNewBid} />} />
