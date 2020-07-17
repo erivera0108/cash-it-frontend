@@ -1,5 +1,5 @@
 import React from 'react'
-import BidCardInfo from './BidCardInfo'
+import UserItemBids from './UserItemBids'
 import NewBid from './NewBid'
 
 const ITEMS_URL = 'http://localhost:3000/api/v1/items'
@@ -40,7 +40,7 @@ class ItemShowPage extends React.Component {
                 <br />
 
                 {user_id === currentUser.id ?
-                    filteredBids.map(bid => <BidCardInfo key={bid.id} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
+                    filteredBids.map(bid => <UserItemBids key={bid.id} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
                     : null}
                 <br />
             </div>

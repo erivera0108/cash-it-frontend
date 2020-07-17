@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemCard from './ItemCard'
-import BidCard from './BidCard'
+import UserBidCard from './UserBidCard'
 
 
 class User extends React.Component {
@@ -26,7 +26,7 @@ class User extends React.Component {
                 </div>
                 <div>
                     User's Bids
-                    {bids.map(bid => <BidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} loaded={true} userName={userName} /> )}
+                    {bids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} loaded={true} userName={userName} /> )}
                 </div>
                 <div>
                 </div>
