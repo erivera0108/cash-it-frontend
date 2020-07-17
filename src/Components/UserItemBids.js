@@ -1,6 +1,7 @@
 import React from 'react'
 
 const USER_URL = 'http://localhost:3000/api/v1/users'
+const BID_URL = 'http://localhost:3000/api/v1/bids'
 
 class UserItemBids extends React.Component {
     state = {
@@ -18,23 +19,46 @@ class UserItemBids extends React.Component {
             })
     }
 
-
-    render() {
-        // console.log(this.props)
-        const { bid } = this.props
-
-        return (
-            <div>
-                Owner Name: {this.state.owner.name}
-                <br />
-                Offer: {bid.offer}
-                <br />
-                <button> Accept Offer </button>
-                <br />
-                <br />
-            </div>
-        )
+    toggleClick = id => {
+        console.log('props', this.props.bid.accepted, id)
+        fetch(`${BID_URL}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                accepted: !this.props.bid.accepted
+            })
+        })
+            .then(res => res.json())
+            .then(console.log)
     }
+
+//     fetch('https://example.com/profile', {
+//         method: 'POST', // or 'PUT'
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data),
+// })
+
+render() {
+    console.log(this.props)
+    const { bid } = this.props
+
+    return (
+        <div>
+            Owner Name: {this.state.owner.name}
+            <br />
+                Offer: {bid.offer}
+            <br />
+            <button onClick={() => this.toggleClick(bid.id)} > Accept Offer </button>
+            <br />
+            <br />
+        </div>
+    )
+}
 }
 
 export default UserItemBids
