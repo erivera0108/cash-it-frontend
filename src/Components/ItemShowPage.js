@@ -22,18 +22,18 @@ class ItemShowPage extends React.Component {
 
     render() {
         const { bids, currentUser, addNewBid } = this.props
-        const { id, category, user_id } = this.state.itemInfo
+        const { id, user_id } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
-        // console.log(filteredBids)
+        // console.log(this.props)
 
         return (
             <div>
                 <div>
                     Item's Show page
                 </div>
-                {currentUser.id === user_id ? null : <NewBid currentUser={currentUser} itemId={id} addNewBid={addNewBid} /> }
-                
+                {currentUser.id === user_id ? null : <NewBid currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
+
                 <br />
                 Potential Buyers: {filteredBids.length}
                 <br />
