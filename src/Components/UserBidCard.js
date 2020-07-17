@@ -2,7 +2,7 @@ import React from 'react'
 
 const ITEM_URL = 'http://localhost:3000/api/v1/items'
 
-class BidCard extends React.Component {
+class UserBidCard extends React.Component {
     state = {
         item: {}
     }
@@ -38,7 +38,7 @@ class BidCard extends React.Component {
     }
 }
 
-export default BidCard
+export default UserBidCard
 
 // "id": 1,
 // "user_id": 13,
