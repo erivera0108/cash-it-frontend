@@ -15,8 +15,11 @@ class User extends React.Component {
                 User Show Page
                 <div>
                     id: {id}
+                    <br />
                     name {name}
+                    <br />
                     Username: {userName}
+                    <br />
                 </div>
                 <br />
                 <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
@@ -26,7 +29,7 @@ class User extends React.Component {
                 </div>
                 <div>
                     User's Bids
-                    {bids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} loaded={true} userName={userName} /> )}
+                    {bids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} loaded={true} userName={userName} />)}
                 </div>
                 <div>
                 </div>

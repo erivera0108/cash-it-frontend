@@ -32,16 +32,11 @@ class UserItemBids extends React.Component {
             })
         })
             .then(res => res.json())
-            .then(console.log)
+            // .then(console.log)
+            this.props.updatingBidArray(id)
     }
 
-//     fetch('https://example.com/profile', {
-//         method: 'POST', // or 'PUT'
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-// })
+    // Update the frontend to show the new bid changes 
 
 render() {
     console.log(this.props)

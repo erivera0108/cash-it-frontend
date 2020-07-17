@@ -36,6 +36,18 @@ class App extends React.Component {
     })
   }
 
+  updatingBidArray = id => {
+    // console.log(id)
+    const updatedBidArray = this.state.bids.map(bid => {
+      if (bid.id === id){
+        bid.accepted = !bid.accepted
+      }
+      return bid
+    })
+    this.setState({ bids: updatedBidArray })
+
+  }
+
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
     const id = 1
@@ -110,7 +122,7 @@ class App extends React.Component {
 
 
 
-    // console.log(searchedItems)
+    console.log(this.state)
 
     return (
       <div>
@@ -121,7 +133,7 @@ class App extends React.Component {
           <Route path='/users/:id' render={routerProps => <User {...routerProps} bids={userBids} deleteBid={this.deleteBid} user={this.state.user} items={searchedUserItems} deleteItem={this.deleteItem} />} />
             
           <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
-          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} currentUser={this.state.user} bids={this.state.bids} addNewBid={this.addNewBid} />} />
+          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} updatingBidArray={this.updatingBidArray} currentUser={this.state.user} bids={this.state.bids} addNewBid={this.addNewBid} />} />
 
           <Route path='/' render={routerProps => <Items user={this.state.user} items={searchedItems} {...routerProps} />} />
         </Switch>
