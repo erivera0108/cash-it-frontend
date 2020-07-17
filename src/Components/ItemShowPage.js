@@ -21,11 +21,11 @@ class ItemShowPage extends React.Component {
     }
 
     render() {
-        const { bids, currentUser, addNewBid } = this.props
+        const { bids, currentUser, addNewBid, updatingBidArray } = this.props
         const { id, user_id } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
-        // console.log(this.props)
+        console.log(this.props)
 
         return (
             <div>
@@ -40,7 +40,7 @@ class ItemShowPage extends React.Component {
                 <br />
 
                 {user_id === currentUser.id ?
-                    filteredBids.map(bid => <UserItemBids key={bid.id} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
+                    filteredBids.map(bid => <UserItemBids key={bid.id} updatingBidArray={updatingBidArray} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
                     : null}
                 <br />
             </div>

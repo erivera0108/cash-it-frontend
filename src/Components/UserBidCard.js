@@ -1,10 +1,11 @@
 import React from 'react'
 
 const ITEM_URL = 'http://localhost:3000/api/v1/items'
+const USER_URL = 'http://localhost:3000/api/v1/users'
 
 class UserBidCard extends React.Component {
     state = {
-        item: {}
+        item: {},
     }
 
     componentDidMount() {
@@ -19,9 +20,11 @@ class UserBidCard extends React.Component {
     render() {
         const { bidInfo, deleteBid, loaded } = this.props
         const { item } = this.state
-        console.log(item)
+        console.log(this.props)
         return (
             <div>
+                {/* Owner: {owner.name} */}
+                <br />
                 Item: {item.category}
                 <br />
                 Offer: {bidInfo.offer}
