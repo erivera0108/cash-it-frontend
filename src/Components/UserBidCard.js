@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ITEM_URL = 'http://localhost:3000/api/v1/items'
-const USER_URL = 'http://localhost:3000/api/v1/users'
+// const USER_URL = 'http://localhost:3000/api/v1/users'
 
 class UserBidCard extends React.Component {
     state = {
