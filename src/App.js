@@ -39,8 +39,19 @@ class App extends React.Component {
   updatingBidArray = id => {
     // console.log(id)
     const updatedBidArray = this.state.bids.map(bid => {
-      if (bid.id === id){
+      if (bid.id === id) {
         bid.accepted = !bid.accepted
+      }
+      return bid
+    })
+    this.setState({ bids: updatedBidArray })
+  }
+
+  updatingBidOffer = (id, newOffer) => {
+    // console.log('id', id, 'new offer', newOffer)
+    const updatedBidArray = this.state.bids.map(bid => {
+      if (bid.id === id) {
+        bid.offer = newOffer
       }
       return bid
     })
@@ -102,6 +113,10 @@ class App extends React.Component {
       }))
   }
 
+  updateBid = id => {
+
+  }
+
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -125,14 +140,35 @@ class App extends React.Component {
     console.log(this.state)
 
     return (
-      <div style={{position: 'relative'}}>
+      <div style={{ position: 'relative' }}>
         <Nav user={this.state.user} value={this.state.searchTerm} onChange={this.onChange} />
         <Switch>
-          <Route path='/signup' render={routerProps => <NewUser history={routerProps.history} currentUser={this.currentUser} />} />
-          <Route path='/users/:id' render={routerProps => <User {...routerProps} bids={userBids} deleteBid={this.deleteBid} user={this.state.user} items={searchedUserItems} deleteItem={this.deleteItem} />} />
-            
-          <Route path='/newItem' render={routerProps => <NewItem {...routerProps} user={this.state.user} addNewItem={this.addNewItem} />} />
-          <Route path='/items/:id' render={routerProps => <ItemShowPage {...routerProps} updatingBidArray={this.updatingBidArray} currentUser={this.state.user} bids={this.state.bids} addNewBid={this.addNewBid} />} />
+          <Route path='/signup' render={routerProps =>
+            <NewUser
+              history={routerProps.history}
+              currentUser={this.currentUser} />} />
+          <Route path='/users/:id' render={routerProps =>
+            <User
+              {...routerProps}
+              bids={userBids}
+              deleteBid={this.deleteBid}
+              user={this.state.user}
+              items={searchedUserItems}
+              updatingBidOffer={this.updatingBidOffer}
+              deleteItem={this.deleteItem} />} />
+
+          <Route path='/newItem' render={routerProps =>
+            <NewItem {
+              ...routerProps}
+              user={this.state.user}
+              addNewItem={this.addNewItem} />} />
+          <Route path='/items/:id' render={routerProps =>
+            <ItemShowPage
+              {...routerProps}
+              updatingBidArray={this.updatingBidArray}
+              currentUser={this.state.user}
+              bids={this.state.bids}
+              addNewBid={this.addNewBid} />} />
 
           <Route path='/' render={routerProps => <Items user={this.state.user} items={searchedItems} {...routerProps} />} />
         </Switch>
