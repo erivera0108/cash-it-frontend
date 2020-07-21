@@ -3,7 +3,7 @@ import React from 'react'
 const ITEM_URL = 'http://localhost:3000/api/v1/items'
 
 
-class NewItems extends React.Component{
+class NewItems extends React.Component {
     state = {
         category: ''
     }
@@ -39,16 +39,19 @@ class NewItems extends React.Component{
             })
     }
 
-    render(){
+    render() {
         // console.log(this.props, this.state)
         return (
-            <div>
-                <form  onSubmit={this.clickSubmit} id="userFormContainer" className="ui form container">
+            <div className='new-item-form'>
+                <form onSubmit={this.clickSubmit} id="userFormContainer" className="ui form container">
                     <div >
                         <h2> Category </h2>
-                        <input type="text" onChange={this.handleInputChange} name="category" value={this.state.category} placeholder="Item Category" />
-                    </div>
-                    <div >
+                        <input type="text"
+                            onChange={this.handleInputChange}
+                            name="category" value={this.state.category}
+                            placeholder="Item Category" />
+                        <br/>
+
                         <button type="submit">Submit</button>
                     </div>
                 </form >

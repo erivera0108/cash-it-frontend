@@ -7,8 +7,9 @@ class Items extends React.Component {
     render() {
         // console.log(this.props)
         return (
-            <div>
-                {this.props.user.username ? `Welcome, ${this.props.user.username}` : ''}
+            <div className='item-index-page'>
+                
+                { this.props.user.username ? `Welcome, ${this.props.user.username}` : ''}
                 {this.props.items.map(item => <ItemCard history={this.props.history} loaded={false} key={item.id} itemInfo={item} />)}
             </div>
         )

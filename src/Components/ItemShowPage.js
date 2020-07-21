@@ -28,22 +28,19 @@ class ItemShowPage extends React.Component {
         console.log(this.props)
 
         return (
-            <div>
-                <div>
-                    Item's Show page
-                </div>
+            <div className='item-card'>
+                Item's Show page
                 {currentUser.id === user_id ? null : <NewBid currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
-
                 <br />
                 Potential Buyers: {filteredBids.length}
                 <br />
                 <br />
-
                 {user_id === currentUser.id ?
                     filteredBids.map(bid => <UserItemBids key={bid.id} updatingBidArray={updatingBidArray} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
                     : null}
                 <br />
             </div>
+
         )
     }
 }

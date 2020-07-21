@@ -24,7 +24,6 @@ class UserBidCard extends React.Component {
         return (
             <div>
                 {/* Owner: {owner.name} */}
-                <br />
                 Item: {item.category}
                 <br />
                 Offer: {bidInfo.offer}

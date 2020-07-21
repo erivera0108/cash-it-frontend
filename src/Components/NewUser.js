@@ -48,7 +48,7 @@ class NewUser extends React.Component {
     render() {
         console.log(this.state, this.props)
         return (
-            <div>
+            <div className='new-user-sign-up'>
                 <form  onSubmit={this.clickSubmit} id="userFormContainer" className="ui form container">
                     <div >
                         <h2> Name</h2>

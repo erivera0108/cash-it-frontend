@@ -22,7 +22,7 @@ class ItemCard extends React.Component {
         const { history, loaded, deleteItem} = this.props
 
         return (
-            <div>
+            <div >
                 <div onClick={() => history.push(`/items/${id}`)} >
                     Owner: {this.state.owner.name} <br />
                     Category: {category}

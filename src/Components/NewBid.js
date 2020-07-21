@@ -50,6 +50,7 @@ class NewBid extends React.Component {
             <div>
                 <form onSubmit={this.clickSubmit} >
                     <input placeholder='offer' name='offer' value={this.state.offer} onChange={this.onChange} />
+                    <br/>
                     <button> Place Your Offer </button>
                 </form>
             </div>

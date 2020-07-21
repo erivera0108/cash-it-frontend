@@ -1,0 +1,70 @@
+body {
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.nav-bar {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  background-color: rgb(50, 84, 0);
+  width: 100vw;
+  grid-template-columns:1fr 1fr 2fr 1fr;
+  display: grid ;
+}
+
+.search-bar input {
+   width: 80%;
+}
+
+.links {
+  text-align: left;
+  color: blue;
+}
+
+/* Item Index Page CSS */
+.item-index-page {
+  position: absolute;
+  top: 3em;
+  left: 2em;
+}
+
+/* Item ShowPage CSS */
+.item-card {
+  position: absolute;
+  top: 3em;
+  left: 2em;
+}
+
+/* User Profile CSS */
+.user-body {
+  position: absolute;
+  top: 3em;
+  left: 2em;
+}
+.user-profile {
+  position: relative;
+}
+
+.user-items {
+  position: relative;
+}
+
+.user-bids {
+  position: relative;
+}
+
+/* New Item CSS*/
+.new-item-form {
+  position: absolute;
+  top: 3em;
+  left: 2em;
+}
+
+/* Sign Up Sheet CSS */
+.new-user-sign-up {
+  position: absolute;
+  top: 3em;
+  left: 2em;
+}
