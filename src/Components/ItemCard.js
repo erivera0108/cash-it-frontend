@@ -22,15 +22,14 @@ class ItemCard extends React.Component {
         const { history, loaded, deleteItem} = this.props
 
         return (
-            <div >
-                <div onClick={() => history.push(`/items/${id}`)} >
+            <div>
+                <div className='item-cards-styles' onClick={() => history.push(`/items/${id}`)} >
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
                 </div>
                 {loaded ? <button onClick={() => deleteItem(id)}> Delete </button> : null}
+                <br />
 
-                <br />
-                <br />
             </div>
         )
     }

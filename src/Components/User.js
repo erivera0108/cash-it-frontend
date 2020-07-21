@@ -12,15 +12,15 @@ class User extends React.Component {
         console.log(this.props.bids)
         return (
             <div className='user-body'>
-                User Show Page
                 <div className='user-profile'>
+                    User Show Page
                     id: {id}
                     <br />
                     name {name}
                     <br />
                     Username: {userName}
                     <br />
-                <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
+                    <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 </div>
                 <br />
                 <div className='user-items'>

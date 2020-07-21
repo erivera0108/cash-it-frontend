@@ -8,9 +8,16 @@ class Items extends React.Component {
         // console.log(this.props)
         return (
             <div className='item-index-page'>
-                
-                { this.props.user.username ? `Welcome, ${this.props.user.username}` : ''}
-                {this.props.items.map(item => <ItemCard history={this.props.history} loaded={false} key={item.id} itemInfo={item} />)}
+                <div id='welcome'>
+                    {this.props.user.username ? <h2>Welcome {this.props.user.username} </h2> : ''}
+                </div>
+                <div>
+                    {this.props.items.map(item =>
+                        <ItemCard history={this.props.history}
+                            loaded={false}
+                            key={item.id}
+                            itemInfo={item} />)}
+                </div>
             </div>
         )
     }

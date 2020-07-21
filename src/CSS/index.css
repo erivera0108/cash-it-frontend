@@ -12,6 +12,7 @@ body {
   width: 100vw;
   grid-template-columns:1fr 1fr 2fr 1fr;
   display: grid ;
+  z-index: 1;
 }
 
 .search-bar input {
@@ -30,6 +31,10 @@ body {
   left: 2em;
 }
 
+.item-cards-styles {
+  border: black;
+}
+
 /* Item ShowPage CSS */
 .item-card {
   position: absolute;
@@ -42,17 +47,26 @@ body {
   position: absolute;
   top: 3em;
   left: 2em;
+  display: grid;
+  grid-template-columns: [first] 1fr [col2] 7em [col3] 1fr [col4];
+  grid-template-rows: [start] 10em [row2] 1fr [row3];
 }
 .user-profile {
   position: relative;
+  grid-column: first / col2;
+  grid-row: start / row2;
 }
 
 .user-items {
   position: relative;
+  grid-column: first / col2;
+  grid-row: row2 / row3;
 }
 
 .user-bids {
   position: relative;
+  grid-column: col3 / col4;
+  grid-row: row2 / row3;
 }
 
 /* New Item CSS*/
@@ -67,4 +81,8 @@ body {
   position: absolute;
   top: 3em;
   left: 2em;
+}
+
+#welcome {
+
 }
