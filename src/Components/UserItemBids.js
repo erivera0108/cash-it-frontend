@@ -39,7 +39,7 @@ class UserItemBids extends React.Component {
     // Update the frontend to show the new bid changes 
 
 render() {
-    console.log(this.props)
+    // console.log(this.props)
     const { bid } = this.props
 
     return (

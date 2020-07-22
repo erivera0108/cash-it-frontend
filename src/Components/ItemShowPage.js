@@ -3,6 +3,7 @@ import UserItemBids from './UserItemBids'
 import NewBid from './NewBid'
 
 const ITEMS_URL = 'http://localhost:3000/api/v1/items'
+const BID_URL = 'http://localhost:3000/api/v1/bids'
 
 
 class ItemShowPage extends React.Component {
@@ -20,19 +21,30 @@ class ItemShowPage extends React.Component {
             })
     }
 
+    maxOffer = array => {
+        const solution = array.sort((a, b) => a.offer - b.offer)
+        const highestOffer = solution[solution.length - 1]
+        return highestOffer
+    }
+
     render() {
         const { bids, currentUser, addNewBid, updatingBidArray } = this.props
         const { id, user_id } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
-        console.log(this.props)
+        const highestBid = this.maxOffer(filteredBids)
+
+        console.log(highestBid)
 
         return (
             <div className='item-card'>
                 Item's Show page
-                {currentUser.id === user_id ? null : <NewBid currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
+                {currentUser.id === user_id ? null : <NewBid  currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
+                <br />
+                Highest Offer: {highestBid ?  highestBid.offer : ''}
                 <br />
                 Potential Buyers: {filteredBids.length}
+
                 <br />
                 <br />
                 {user_id === currentUser.id ?
