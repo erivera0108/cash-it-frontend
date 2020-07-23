@@ -59,7 +59,7 @@ class UserBidCard extends React.Component {
     render() {
         const { bidInfo, deleteBid, loaded, updatingBidOffer } = this.props
         const { item, updateToggle } = this.state
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div>
                 {/* Owner: {owner.name} */}

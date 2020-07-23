@@ -29,16 +29,18 @@ class ItemShowPage extends React.Component {
 
     render() {
         const { bids, currentUser, addNewBid, updatingBidArray } = this.props
-        const { id, user_id } = this.state.itemInfo
+        const { id, user_id, image, category } = this.state.itemInfo
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
         const highestBid = this.maxOffer(filteredBids)
 
-        console.log(highestBid)
+        console.log(this.state.itemInfo)
 
         return (
             <div className='item-card'>
                 Item's Show page
+                <img src={image} alt={category}/>
+
                 {currentUser.id === user_id ? null : <NewBid  currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
                 <br />
                 Highest Offer: {highestBid ?  highestBid.offer : ''}
