@@ -6,10 +6,10 @@ import UserBidCard from './UserBidCard'
 class User extends React.Component {
 
     render() {
-        const { id, name, userName } = this.props.user
+        const { id, name, username, image } = this.props.user
         const { history, items, deleteItem, bids, deleteBid, updatingBidOffer } = this.props
 
-        console.log(this.props.bids)
+        console.log(this.props.user)
         return (
             <div className='user-body'>
                 <div className='user-profile'>
@@ -18,8 +18,9 @@ class User extends React.Component {
                     <br />
                     name {name}
                     <br />
-                    Username: {userName}
+                    Username: {username}
                     <br />
+                    <img src={image} alt={name}/>
                     <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 </div>
                 <br />
@@ -29,7 +30,7 @@ class User extends React.Component {
                 </div>
                 <div className='user-bids'>
                     User's Bids
-                    {bids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} updatingBidOffer={updatingBidOffer} loaded={true} userName={userName} />)}
+                    {bids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} updatingBidOffer={updatingBidOffer} loaded={true} username={username} />)}
                 </div>
                 <div>
                 </div>
