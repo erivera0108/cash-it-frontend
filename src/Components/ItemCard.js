@@ -17,13 +17,15 @@ class ItemCard extends React.Component {
     }
 
     render() {
-        console.log(this.props.itemInfo)
-        const { id, category } = this.props.itemInfo
+        const { id, category, image} = this.props.itemInfo
         const { history, loaded, deleteItem} = this.props
+        console.log(this.props.itemInfo)
 
         return (
             <div>
                 <div className='item-cards-styles' onClick={() => history.push(`/items/${id}`)} >
+                <img src={'http://localhost:3000' + image} alt={category}/>
+
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
                 </div>
