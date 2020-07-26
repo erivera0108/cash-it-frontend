@@ -33,7 +33,13 @@ body {
 }
 
 .item-cards-styles {
-  border: black;
+  width: 30em;
+  padding: 10px;
+  background: grey;
+  border: .25em black solid;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Item ShowPage CSS */
@@ -78,6 +84,15 @@ body {
   position: relative;
   grid-column: col3 / col4;
   grid-row: row3 / row4;
+}
+
+.user-bid-card {
+  width: 20em;
+  padding: 10px;
+  margin: 10px;
+  background: grey;
+  border: .25em black solid;
+  border-radius: 1em;
 }
 
 /* New Item CSS*/

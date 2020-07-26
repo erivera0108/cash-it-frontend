@@ -61,30 +61,29 @@ class UserBidCard extends React.Component {
         const { item, updateToggle } = this.state
         // console.log(this.props)
         return (
-            <div>
+            <div className='user-bid-card' >
                 {/* Owner: {owner.name} */}
                 Item: {item.category}
                 <br />
                 Offer: {bidInfo.offer}
                 <br />
-                Accepted?
-                <div>
-                    {loaded ?
-                        <div>
-                            <button onClick={() => deleteBid(bidInfo.id)}> Delete </button>
-                            <br />
-                            <button onClick={this.toggleUpdateState}> Change Offer </button>
-                            {updateToggle ?
-                                <form onSubmit={this.clickSubmit}>
-                                    <input type="text" onChange={this.handleInputChange} name="updatedOffer" value={this.state.updatedOffer} placeholder="New Offer" />
-                                    <button type="submit">Submit</button>
-                                </form>
-                                : null}
-                        </div>
-                        : null}
-                </div>
+                {/* Accepted? */}
+                {loaded ?
+                    <div>
+                        <button onClick={() => deleteBid(bidInfo.id)}> Delete </button>
+                        <br />
+                        <button onClick={this.toggleUpdateState}> Change Offer </button>
+                        {updateToggle ?
+                            <form onSubmit={this.clickSubmit}>
+                                <input type="text" onChange={this.handleInputChange} name="updatedOffer" value={this.state.updatedOffer} placeholder="New Offer" />
+                                <button type="submit">Submit</button>
+                            </form>
+                            : null
+                        }
+                    </div>
+                    : null
+                }
             </div>
-
         )
     }
 }
