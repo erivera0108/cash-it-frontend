@@ -150,7 +150,7 @@ class App extends React.Component {
           <Route path='/users/:id' render={routerProps =>
             <User
               {...routerProps}
-              bids={userBids}
+              userBids={userBids}
               deleteBid={this.deleteBid}
               user={this.state.user}
               items={searchedUserItems}

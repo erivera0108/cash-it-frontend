@@ -7,7 +7,7 @@ class User extends React.Component {
 
     render() {
         const { id, name, username, image } = this.props.user
-        const { history, items, deleteItem, bids, deleteBid, updatingBidOffer } = this.props
+        const { history, items, deleteItem, userBids, deleteBid, updatingBidOffer } = this.props
 
         console.log(this.props.user)
         return (
@@ -30,7 +30,7 @@ class User extends React.Component {
                 </div>
                 <div className='user-bids'>
                     User's Bids
-                    {bids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} updatingBidOffer={updatingBidOffer} loaded={true} username={username} />)}
+                    {userBids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} updatingBidOffer={updatingBidOffer} loaded={true} username={username} />)}
                 </div>
                 <div>
                 </div>
