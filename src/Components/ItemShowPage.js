@@ -33,25 +33,31 @@ class ItemShowPage extends React.Component {
 
         const filteredBids = bids.filter(bid => bid.item_id === id)
         const highestBid = this.maxOffer(filteredBids)
-
-        console.log(this.state.itemInfo)
+        const availability = filteredBids.map(bid => bid.accepted)
+        console.log(availability)
 
         return (
             <div className='item-card'>
                 Item's Show page
-                <img src={image} alt={category}/>
+                <img src={image} alt={category} />
 
-                {currentUser.id === user_id ? null : <NewBid  currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
+                {currentUser.id === user_id ? null : <NewBid currentUser={currentUser} itemId={id} addNewBid={addNewBid} />}
                 <br />
-                Highest Offer: {highestBid ?  highestBid.offer : ''}
+                Highest Offer: {highestBid ? highestBid.offer : ''}
                 <br />
                 Potential Buyers: {filteredBids.length}
 
                 <br />
                 <br />
-                {user_id === currentUser.id ?
-                    filteredBids.map(bid => <UserItemBids key={bid.id} updatingBidArray={updatingBidArray} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
-                    : null}
+
+                {
+                    availability.length === 0 ? '' : 
+                    availability.includes(true) ?
+                     'Item has been sold' :
+                        (user_id === currentUser.id ?
+                            filteredBids.map(bid => <UserItemBids key={bid.id} updatingBidArray={updatingBidArray} itemOwner={user_id} currentUser={currentUser} bid={bid} />)
+                            : null)
+                }
                 <br />
             </div>
 

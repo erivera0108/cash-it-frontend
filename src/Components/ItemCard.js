@@ -24,12 +24,12 @@ class ItemCard extends React.Component {
         return (
             <div>
                 <div className='item-cards-styles' onClick={() => history.push(`/items/${id}`)} >
-                <img src={'http://localhost:3000' + image} alt={category}/>
+                <img className='item-pic' src={'http://localhost:3000' + image} alt={category}/>
 
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
-                </div>
                 {loaded ? <button onClick={() => deleteItem(id)}> Delete </button> : null}
+                </div>
                 <br />
 
             </div>

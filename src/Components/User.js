@@ -14,13 +14,13 @@ class User extends React.Component {
             <div className='user-body'>
                 <div className='user-profile'>
                     User Show Page
-                    id: {id}
+                    <br />
+                    <img className='user-pic' src={image} alt={name} />
                     <br />
                     name {name}
                     <br />
                     Username: {username}
                     <br />
-                    <img src={image} alt={name}/>
                     <button onClick={() => history.push('/newItem')} > Add new Item to sell </button>
                 </div>
                 <br />

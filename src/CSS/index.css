@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Roboto Slab', serif;
 
@@ -42,6 +43,11 @@ body {
   left: 2em;
 }
 
+.item-pic {
+  width: 8em;
+  height: auto;
+}
+
 /* User Profile CSS */
 .user-body {
   position: absolute;
@@ -49,7 +55,7 @@ body {
   left: 2em;
   display: grid;
   grid-template-columns: [first] 1fr [col2] 7em [col3] 1fr [col4];
-  grid-template-rows: [start] 10em [row2] 1fr [row3];
+  grid-template-rows: [start] 13em [row2] 3em [row3] 1fr [row4];
 }
 .user-profile {
   position: relative;
@@ -57,16 +63,21 @@ body {
   grid-row: start / row2;
 }
 
+.user-pic {
+  width: 8em;
+  height: auto;
+}
+
 .user-items {
   position: relative;
   grid-column: first / col2;
-  grid-row: row2 / row3;
+  grid-row: row3 / row4;
 }
 
 .user-bids {
   position: relative;
   grid-column: col3 / col4;
-  grid-row: row2 / row3;
+  grid-row: row3 / row4;
 }
 
 /* New Item CSS*/
