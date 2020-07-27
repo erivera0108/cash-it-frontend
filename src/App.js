@@ -61,7 +61,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
-    const id = 1
+    const id = 4
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
       .then(userData => {
@@ -154,6 +154,7 @@ class App extends React.Component {
               deleteBid={this.deleteBid}
               user={this.state.user}
               items={searchedUserItems}
+              addNewItem={this.addNewItem}
               updatingBidOffer={this.updatingBidOffer}
               deleteItem={this.deleteItem} />} />
 
