@@ -70,7 +70,7 @@ class UserBidCard extends React.Component {
                 {/* Accepted? */}
                 {loaded ?
                     <div>
-                        <button onClick={() => deleteBid(bidInfo.id)}> Delete </button>
+                        <button className='deleteButton' onClick={() => deleteBid(bidInfo.id)}> Delete </button>
                         <br />
                         <button onClick={this.toggleUpdateState}> Change Offer </button>
                         {updateToggle ?

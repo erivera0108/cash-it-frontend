@@ -12,6 +12,7 @@ class NewItems extends React.Component {
                 <form onSubmit={this.props.clickSubmit}>
                     <div >
                         <h2> Category </h2>
+                        
                         <input type="text"
                             onChange={this.props.handleInputChange}
                             name="category" value={this.props.category}

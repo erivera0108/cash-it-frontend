@@ -61,7 +61,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
-    const id = 4
+    const id = 7
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
       .then(userData => {

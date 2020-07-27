@@ -52,6 +52,7 @@ body {
 .item-pic {
   width: 8em;
   height: auto;
+  border-radius: 1em;
 }
 
 /* User Profile CSS */
@@ -87,7 +88,7 @@ body {
 }
 
 .user-bid-card {
-  width: 20em;
+  width: 15em;
   padding: 10px;
   margin: 10px;
   background: grey;
@@ -100,6 +101,10 @@ body {
   position: absolute;
   top: 1em;
   left: 15em;
+}
+
+.deleteButton {
+  width: 30%;
 }
 
 /* Sign Up Sheet CSS */

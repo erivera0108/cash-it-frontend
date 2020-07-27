@@ -27,7 +27,7 @@ class ItemCard extends React.Component {
                     <img className='item-pic' src={'http://localhost:3000' + image} alt={category} />
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
-                    {loaded ? <button onClick={() => deleteItem(id)}> Delete </button> : null}
+                    {loaded ? <button className='deleteButton' onClick={() => deleteItem(id)}> Delete </button> : null}
                 </div>
                 <br />
 
