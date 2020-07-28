@@ -8,8 +8,9 @@ const ITEM_URL = 'http://localhost:3000/api/v1/items'
 
 class User extends React.Component {
     state = {
+        newFormToggle: false,
         category: '',
-        newFormToggle: false
+        image: null
     }
 
     handleInputChange = (e) => {
@@ -39,13 +40,14 @@ class User extends React.Component {
             })
         })
             .then(res => res.json())
-            .then(newItem => {
-                // console.log(newItem)
-                this.props.addNewItem(newItem)
-                this.setState({
-                    category: '',
-                })
-                this.props.history.push(`/users/${user.id}`)
+            .then(newItem => 
+                {
+                console.log(newItem)
+                // this.props.addNewItem(newItem)
+                // this.setState({
+                //     category: '',
+                // })
+                
             })
     }
 
@@ -53,7 +55,7 @@ class User extends React.Component {
         const { id, name, username, image } = this.props.user
         const { history, items, deleteItem, userBids, deleteBid, updatingBidOffer } = this.props
 
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className='user-body'>
                 <div className='user-profile'>

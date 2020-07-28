@@ -8,7 +8,7 @@ const BID_URL = 'http://localhost:3000/api/v1/bids'
 
 class ItemShowPage extends React.Component {
     state = {
-        itemInfo: {}
+        itemInfo: {}, 
     }
 
     itemId = this.props.match.params.id
@@ -34,7 +34,7 @@ class ItemShowPage extends React.Component {
         const filteredBids = bids.filter(bid => bid.item_id === id)
         const highestBid = this.maxOffer(filteredBids)
         const availability = filteredBids.map(bid => bid.accepted)
-        console.log(availability)
+        console.log(this.state)
 
         return (
             <div className='item-card'>

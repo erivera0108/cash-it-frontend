@@ -61,7 +61,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
-    const id = 22
+    const id = 25
 
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
@@ -126,6 +126,7 @@ class App extends React.Component {
 
 
   render() {
+    console.log(this.state.items)
     const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
     const searchedItems = filteredItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
@@ -138,7 +139,6 @@ class App extends React.Component {
 
 
 
-    console.log(this.state)
 
     return (
       <div style={{ position: 'relative' }}>
