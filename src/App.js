@@ -126,10 +126,10 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.items)
     const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
     const searchedItems = filteredItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-
+    
+    console.log(this.state.items)
     const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
     const searchedUserItems = userItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 

@@ -1,10 +1,14 @@
 import React from 'react'
 
 const USER_URL = 'http://localhost:3000/api/v1/users'
+const ITEMS_URL = 'http://localhost:3000/api/v1/items'
+
 
 class ItemCard extends React.Component {
     state = {
-        owner: {}
+        owner: {},
+        itemInfo: {}
+
     }
 
     componentDidMount() {
@@ -14,17 +18,24 @@ class ItemCard extends React.Component {
             .then(owner => {
                 this.setState({ owner })
             })
+
+        fetch(`${ITEMS_URL}/${this.props.itemInfo.id}`)
+            .then(res => res.json())
+            .then(itemInfo => {
+                this.setState({ itemInfo })
+            })
+
     }
 
     render() {
-        const { id, category, image } = this.props.itemInfo
+        const { id, category } = this.props.itemInfo
         const { history, loaded, deleteItem } = this.props
-        console.log(this.props.itemInfo)
+        console.log(this.state.itemInfo)
 
         return (
             <div>
                 <div className='item-cards-styles' onClick={() => history.push(`/items/${id}`)} >
-                    <img className='item-pic' src={'http://localhost:3000' + image} alt={category} />
+                    <img className='item-pic' src={this.state.itemInfo.image} alt={category} />
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
                     {loaded ? <button className='deleteButton' onClick={() => deleteItem(id)}> Delete </button> : null}
