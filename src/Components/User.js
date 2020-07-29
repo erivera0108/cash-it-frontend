@@ -2,6 +2,7 @@ import React from 'react'
 import ItemCard from './ItemCard'
 import UserBidCard from './UserBidCard'
 import NewItem from './NewItem'
+import { DirectUpload } from "activestorage";
 
 const ITEM_URL = 'http://localhost:3000/api/v1/items'
 
@@ -10,18 +11,35 @@ class User extends React.Component {
     state = {
         newFormToggle: false,
         category: '',
-        image: null
+        image: {}
     }
 
     handleInputChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        if (e.target.name === 'image') {
+            this.setState({
+                [e.target.name]: e.target.files[0]
+            })
+        } else {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
     }
 
     toggleState = () => {
         this.setState({
             newFormToggle: !this.state.newFormToggle
+        })
+    }
+
+    uploadFile = (image, item) => {
+        const upload = new DirectUpload(image, 'http://localhost:3000/rails/active_storage/direct_uploads')
+        upload.create((error, blob) => {
+            if (error) {
+                console.log(error)
+            } else {
+                console.log('no error')
+            }
         })
     }
 
@@ -40,14 +58,14 @@ class User extends React.Component {
             })
         })
             .then(res => res.json())
-            .then(newItem => 
-                {
+            .then(newItem => {
                 console.log(newItem)
+                this.uploadFile(this.state.image, newItem)
                 // this.props.addNewItem(newItem)
                 // this.setState({
                 //     category: '',
                 // })
-                
+
             })
     }
 
@@ -55,7 +73,7 @@ class User extends React.Component {
         const { id, name, username, image } = this.props.user
         const { history, items, deleteItem, userBids, deleteBid, updatingBidOffer } = this.props
 
-        // console.log(this.state)
+        console.log(this.state)
         return (
             <div className='user-body'>
                 <div className='user-profile'>
@@ -68,11 +86,11 @@ class User extends React.Component {
                     Username: {username}
                     <br />
                     <button onClick={this.toggleState} > Add new Item to sell </button>
-                    {this.state.newFormToggle ? <NewItem 
-                    clickSubmit={this.clickSubmit} 
-                    handleInputChange={this.handleInputChange} 
-                    category={this.state.category} /> 
-                    : null}
+                    {this.state.newFormToggle ? <NewItem
+                        clickSubmit={this.clickSubmit}
+                        handleInputChange={this.handleInputChange}
+                        category={this.state.category} />
+                        : null}
                 </div>
 
                 <div className='user-items'>
