@@ -16,9 +16,8 @@ class NewItems extends React.Component {
                         <input type="text"
                             onChange={this.props.handleInputChange}
                             name="category" value={this.props.category}
-                            placeholder="Item Category" />
-                            <label>Add Image</label>
-                            <input id='file-text' type='file' name='image' value={this.props.value} onChange={this.props.handleInputChange} /> 
+                            placeholder="Item Name" />
+                            <input type='text' name='image' placeholder="Item URL" value={this.props.value} onChange={this.props.handleInputChange} /> 
                         <br/>
                         <button type="submit">Submit</button>
                     </div>

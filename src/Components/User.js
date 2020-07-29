@@ -11,19 +11,13 @@ class User extends React.Component {
     state = {
         newFormToggle: false,
         category: '',
-        image: {}
+        image: ''
     }
 
     handleInputChange = (e) => {
-        if (e.target.name === 'image') {
-            this.setState({
-                [e.target.name]: e.target.files[0]
-            })
-        } else {
-            this.setState({
-                [e.target.name]: e.target.value
-            })
-        }
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     toggleState = () => {
@@ -54,7 +48,8 @@ class User extends React.Component {
             },
             body: JSON.stringify({
                 category: this.state.category,
-                user_id: user.id
+                user_id: user.id,
+                image: this.state.image
             })
         })
             .then(res => res.json())
@@ -64,6 +59,7 @@ class User extends React.Component {
                 this.props.addNewItem(newItem)
                 this.setState({
                     category: '',
+                    image: ''
                 })
 
             })
@@ -81,7 +77,7 @@ class User extends React.Component {
 
                     <img className='user-pic' src={image} alt={name} />
                     <p> Name: {name}
-                    <br />
+                        <br />
                     Username: {username} </p>
                     <button id='add-item' onClick={this.toggleState} > Add new Item to sell </button>
                     {this.state.newFormToggle ? <NewItem
