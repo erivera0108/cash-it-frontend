@@ -1,9 +1,31 @@
 
 body {
   font-family: 'Roboto Slab', serif;
-  color: black;
+  color: #eee5e5;
   background-color: #eee5e5;
   z-index: 0;
+}
+
+.custom-shape-divider-bottom-1596031080 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1596031080 svg {
+  position: relative;
+  display: block;
+  width: calc(104% + 1.3px);
+  height: 333px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1596031080 .shape-fill {
+  fill: #116A20;
 }
 
 h1 {
@@ -60,8 +82,13 @@ h1 {
   border: .25em black solid;
   border-radius: 1em;
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: column; 
+}
+
+img {
+  width: 85%;
+  height: auto;
+  border-radius: 1em;
 }
 
 /* Item ShowPage CSS */
@@ -69,6 +96,8 @@ h1 {
   position: absolute;
   top: 3em;
   left: 2em;
+  width: 25em;
+  padding: 1em;
 }
 
 .item-pic {
@@ -85,16 +114,22 @@ h1 {
   display: grid;
   grid-template-columns: [first] 1fr [col2] 7em [col3] 1fr [col4];
   grid-template-rows: [start] 13em [row2] 3em [row3] 1fr [row4];
+
 }
 .user-profile {
   position: relative;
-  grid-column: first / col2;
-  grid-row: start / row2;
+  /* grid-column: first / col2;
+  grid-row: start / row2; */
+  display: flex;
+  flex-direction: column;
+  width: 30m;
+  height: auto;
+  
 }
 
 .user-pic {
-  width: 8em;
-  height: auto;
+  width: 30%;
+  
 }
 
 .user-items {
@@ -125,8 +160,12 @@ h1 {
   left: 15em;
 }
 
-.deleteButton {
+.delete-Button {
   width: 30%;
+}
+
+#add-item {
+  width: 40%;
 }
 
 /* Sign Up Sheet CSS */

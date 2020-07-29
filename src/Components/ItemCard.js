@@ -37,7 +37,7 @@ class ItemCard extends React.Component {
                 <img onClick={() => history.push(`/items/${id}`)} className='item-pic' src={this.state.itemInfo.image} alt={category} />
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
-                {loaded ? <button className='deleteButton' onClick={() => deleteItem(id)}> Delete </button> : null}
+                {loaded ? <button className='delete-Button' onClick={() => deleteItem(id)}> Delete </button> : null}
                 <br />
             </li>
         )

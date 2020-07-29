@@ -20,7 +20,6 @@ class NewItems extends React.Component {
                             <label>Add Image</label>
                             <input type='file' name='image' value={this.props.value} onChange={this.props.handleInputChange} /> 
                         <br/>
-
                         <button type="submit">Submit</button>
                     </div>
                 </form >
