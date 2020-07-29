@@ -33,16 +33,13 @@ class ItemCard extends React.Component {
         console.log(this.state.itemInfo)
 
         return (
-            <div>
-                <div className='item-cards-styles'  >
-                    <img onClick={() => history.push(`/items/${id}`)} className='item-pic' src={this.state.itemInfo.image} alt={category} />
+            <li className='item-cards-styles'>
+                <img onClick={() => history.push(`/items/${id}`)} className='item-pic' src={this.state.itemInfo.image} alt={category} />
                     Owner: {this.state.owner.name} <br />
                     Category: {category}
-                    {loaded ? <button className='deleteButton' onClick={() => deleteItem(id)}> Delete </button> : null}
-                </div>
+                {loaded ? <button className='deleteButton' onClick={() => deleteItem(id)}> Delete </button> : null}
                 <br />
-
-            </div>
+            </li>
         )
     }
 }
