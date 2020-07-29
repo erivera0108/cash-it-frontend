@@ -160,8 +160,8 @@ class App extends React.Component {
               deleteItem={this.deleteItem} />} />
 
           <Route path='/newItem' render={routerProps =>
-            <NewItem {
-              ...routerProps}
+            <NewItem 
+             {...routerProps}
               user={this.state.user}
               addNewItem={this.addNewItem} />} />
           <Route path='/items/:id' render={routerProps =>

@@ -93,7 +93,7 @@ class User extends React.Component {
                 </div>
                 <div className='user-bids'>
                     <p> User's Bids </p>
-                    {userBids.map(bid => <UserBidCard key={bid.id} bidInfo={bid} deleteBid={deleteBid} updatingBidOffer={updatingBidOffer} loaded={true} username={username} />)}
+                    {userBids.map(bid => <UserBidCard history={history} key={bid.id} bidInfo={bid} deleteBid={deleteBid} updatingBidOffer={updatingBidOffer} loaded={true} username={username} />)}
                 </div>
                 <div>
                 </div>
