@@ -59,6 +59,12 @@ class App extends React.Component {
 
   }
 
+  clearSearch = () => {
+    this.setState({
+      searchTerm: ''
+    })
+  }
+
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
     const id = 16
@@ -128,7 +134,7 @@ class App extends React.Component {
   render() {
     const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
     const searchedItems = filteredItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-    
+
     console.log(this.state.items)
     const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
     const searchedUserItems = userItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
@@ -142,7 +148,7 @@ class App extends React.Component {
 
     return (
       <div style={{ position: 'relative' }}>
-        <Nav user={this.state.user} value={this.state.searchTerm} onChange={this.onChange} />
+        <Nav user={this.state.user} clearSearch={this.clearSearch} value={this.state.searchTerm} onChange={this.onChange} />
         <Switch>
           <Route path='/signup' render={routerProps =>
             <NewUser
@@ -160,8 +166,8 @@ class App extends React.Component {
               deleteItem={this.deleteItem} />} />
 
           <Route path='/newItem' render={routerProps =>
-            <NewItem 
-             {...routerProps}
+            <NewItem
+              {...routerProps}
               user={this.state.user}
               addNewItem={this.addNewItem} />} />
           <Route path='/items/:id' render={routerProps =>

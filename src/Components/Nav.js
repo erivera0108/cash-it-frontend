@@ -7,13 +7,13 @@ class Nav extends React.Component {
 
 
     render() {
-        const { onChange, value } = this.props
+        const { onChange, value, clearSearch } = this.props
         return (
             <div>
                 <div className="nav-bar"  >
                     <Link className="links" to='/'>Home</Link>
                     <Link className="links" to={`/users/${this.props.user.id}`} >Profile</Link>
-                    <SearchBar onChange={onChange} value={value} />
+                    <SearchBar clearSearch={clearSearch} onChange={onChange} value={value} />
                     <Link className="links" to='/signup' >Signup</Link>
                 </div>
             </div>

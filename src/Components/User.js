@@ -20,6 +20,7 @@ class User extends React.Component {
         })
     }
 
+
     toggleState = () => {
         this.setState({
             newFormToggle: !this.state.newFormToggle
