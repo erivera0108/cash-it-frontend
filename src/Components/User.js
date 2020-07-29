@@ -60,11 +60,11 @@ class User extends React.Component {
             .then(res => res.json())
             .then(newItem => {
                 console.log(newItem)
-                this.uploadFile(this.state.image, newItem)
-                // this.props.addNewItem(newItem)
-                // this.setState({
-                //     category: '',
-                // })
+                // this.uploadFile(this.state.image, newItem)
+                this.props.addNewItem(newItem)
+                this.setState({
+                    category: '',
+                })
 
             })
     }
