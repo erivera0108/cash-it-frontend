@@ -78,11 +78,11 @@ class User extends React.Component {
             <div className='user-body'>
                 <div className='user-profile'>
                     User Show Page
-                    <br />
+
                     <img className='user-pic' src={image} alt={name} />
-                    name {name}
+                    <p> Name: {name}
                     <br />
-                    Username: {username}
+                    Username: {username} </p>
                     <button id='add-item' onClick={this.toggleState} > Add new Item to sell </button>
                     {this.state.newFormToggle ? <NewItem
                         clickSubmit={this.clickSubmit}

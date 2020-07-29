@@ -6,6 +6,18 @@ body {
   z-index: 0;
 }
 
+p {
+  color: black;
+}
+
+h2 {
+  color: black;
+}
+
+#file-text {
+  color: black;
+}
+
 .custom-shape-divider-bottom-1596031080 {
   position: fixed;
   bottom: 0;
