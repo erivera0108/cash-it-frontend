@@ -14,6 +14,16 @@ h2 {
   color: black;
 }
 
+#hidden-switch {
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  color: #116a20;
+  width: 1em;
+  height: 1em;
+
+}
+
 #file-text {
   color: black;
 }
@@ -52,6 +62,7 @@ h1 {
   left: 0;
   background-color: #116a20;
   width: 100vw;
+  height: 3em;
   grid-template-columns:1fr 1fr 2fr 1fr;
   display: grid ;
   z-index: 2;
@@ -70,7 +81,6 @@ h1 {
 .item-index-page {
   position: absolute;
   top: 3em;
-  left: 2em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -85,8 +95,6 @@ h1 {
 
 .item-cards-styles {
   position: relative;
-  top: 6em;
-  left: 2em;
   width: 15em;
   padding: 1em;
   margin: 1em;
@@ -168,8 +176,12 @@ img {
 /* New Item CSS*/
 .new-item-form {
   position: absolute;
+  background-image: linear-gradient(to right, #116a20, grey);
+  padding: 0.75em;
+  border: .25em black solid;
+  border-radius: 1em;
   top: 1em;
-  left: 15em;
+  left: 12em;
 }
 
 .delete-Button {
@@ -188,7 +200,7 @@ img {
 }
 
 #welcome {
-position: absolute;
-top: 1em;
+position: relative;
+top: 2em;
 left: 1em;
 }

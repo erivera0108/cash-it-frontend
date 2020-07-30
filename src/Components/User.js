@@ -70,12 +70,11 @@ class User extends React.Component {
         const { id, name, username, image } = this.props.user
         const { history, items, deleteItem, userBids, deleteBid, updatingBidOffer } = this.props
 
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className='user-body'>
                 <div className='user-profile'>
                     User Show Page
-
                     <img className='user-pic' src={image} alt={name} />
                     <p> Name: {name}
                         <br />

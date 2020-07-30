@@ -7,14 +7,14 @@ class Nav extends React.Component {
 
 
     render() {
-        const { onChange, value, clearSearch } = this.props
+        const { onChange, value, clearSearch, changeUser } = this.props
         return (
             <div>
                 <div className="nav-bar"  >
                     <Link className="links" to='/'>Home</Link>
                     <Link className="links" to={`/users/${this.props.user.id}`} >Profile</Link>
                     <SearchBar clearSearch={clearSearch} onChange={onChange} value={value} />
-                    <Link className="links" to='/signup' >Signup</Link>
+                    <button id='hidden-switch' onClick={changeUser} ></button>
                 </div>
             </div>
 

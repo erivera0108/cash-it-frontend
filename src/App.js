@@ -15,13 +15,28 @@ class App extends React.Component {
     user: {},
     items: [],
     bids: [],
-    searchTerm: ''
+    searchTerm: '',
+    startingId: 16
+
   }
 
   currentUser = user => {
     this.setState({
       user
     })
+  }
+
+  changeUser = () => {
+
+    const id = 17
+
+    fetch(`${USER_URL}/${id}`)
+      .then(res => res.json())
+      .then(userData => {
+        this.setState({
+          user: userData
+        })
+      })
   }
 
   addNewItem = newItem => {
@@ -67,7 +82,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // Comment out the user fetch below to enable signup 
-    const id = 16
+    const id = this.state.startingId
 
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
@@ -135,7 +150,7 @@ class App extends React.Component {
     const filteredItems = this.state.items.filter(item => item.user_id !== this.state.user.id)
     const searchedItems = filteredItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
-    console.log(this.state.items)
+    console.log(this.state)
     const userItems = this.state.items.filter(item => item.user_id === this.state.user.id)
     const searchedUserItems = userItems.filter(item => item.category.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
@@ -148,7 +163,7 @@ class App extends React.Component {
 
     return (
       <div style={{ position: 'relative' }}>
-        <Nav user={this.state.user} clearSearch={this.clearSearch} value={this.state.searchTerm} onChange={this.onChange} />
+        <Nav changeUser={this.changeUser} user={this.state.user} clearSearch={this.clearSearch} value={this.state.searchTerm} onChange={this.onChange} />
         <Switch>
           <Route path='/signup' render={routerProps =>
             <NewUser

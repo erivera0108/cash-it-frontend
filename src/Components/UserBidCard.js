@@ -59,7 +59,7 @@ class UserBidCard extends React.Component {
     render() {
         const { bidInfo, deleteBid, loaded, updatingBidOffer, history} = this.props
         const { item, updateToggle } = this.state
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className='user-bid-card' >
                 <img onClick={() => history.push(`/items/${item.id}`)} src={item.image} alt={item.category} />

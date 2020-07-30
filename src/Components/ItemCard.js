@@ -30,7 +30,7 @@ class ItemCard extends React.Component {
     render() {
         const { id, category } = this.props.itemInfo
         const { history, loaded, deleteItem } = this.props
-        console.log(this.state.itemInfo)
+        // console.log(this.state.itemInfo)
 
         return (
             <li className='item-cards-styles'>
