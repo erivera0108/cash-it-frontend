@@ -27,16 +27,16 @@ class User extends React.Component {
         })
     }
 
-    uploadFile = (image, item) => {
-        const upload = new DirectUpload(image, 'http://localhost:3000/rails/active_storage/direct_uploads')
-        upload.create((error, blob) => {
-            if (error) {
-                console.log(error)
-            } else {
-                console.log('no error')
-            }
-        })
-    }
+    // uploadFile = (image, item) => {
+    //     const upload = new DirectUpload(image, 'http://localhost:3000/rails/active_storage/direct_uploads')
+    //     upload.create((error, blob) => {
+    //         if (error) {
+    //             console.log(error)
+    //         } else {
+    //             console.log('no error')
+    //         }
+    //     })
+    // }
 
     clickSubmit = (e) => {
         e.preventDefault()
@@ -60,7 +60,8 @@ class User extends React.Component {
                 this.props.addNewItem(newItem)
                 this.setState({
                     category: '',
-                    image: ''
+                    image: '',
+                    newFormToggle: false
                 })
 
             })

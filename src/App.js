@@ -16,7 +16,7 @@ class App extends React.Component {
     items: [],
     bids: [],
     searchTerm: '',
-    startingId: 16
+    startingId: 1
 
   }
 
@@ -26,10 +26,7 @@ class App extends React.Component {
     })
   }
 
-  changeUser = () => {
-
-    const id = 17
-
+  changeUser = (id) => {
     fetch(`${USER_URL}/${id}`)
       .then(res => res.json())
       .then(userData => {

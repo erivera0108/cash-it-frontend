@@ -14,14 +14,22 @@ h2 {
   color: black;
 }
 
-#hidden-switch {
+#hidden-switch-1 {
   position: absolute;
   top: 0px;
   right: 0%;
   color: #116a20;
   width: 1em;
   height: 1em;
+}
 
+#hidden-switch-2 {
+  position: absolute;
+  top: 1em;
+  right: 0%;
+  color: #116a20;
+  width: 1em;
+  height: 1em;
 }
 
 #file-text {
@@ -134,7 +142,6 @@ img {
   display: grid;
   grid-template-columns: [first] 1fr [col2] 7em [col3] 1fr [col4];
   grid-template-rows: [start] 13em [row2] 3em [row3] 1fr [row4];
-
 }
 .user-profile {
   position: relative;
